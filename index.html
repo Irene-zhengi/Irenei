@@ -9,67 +9,23 @@
         :root {
             --bg-color: #0a0a0a;
             --text-color: #f5f5f5;
-            --accent-color: #d4af37; /* 香槟金，适合美妆行业 */
+            --accent-color: #d4af37; /* 香槟金 */
         }
         body { margin: 0; background: var(--bg-color); color: var(--text-color); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; overflow-x: hidden; }
-        
-        /* 隐藏滚动条但保持功能 */
         ::-webkit-scrollbar { display: none; }
 
-        /* --- 1. 英雄榜 (Hero Section) --- */
-        .hero {
-            height: 100vh; /* 占满全屏 */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
-            position: relative;
-        }
+        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%); }
         .hero h1 { font-size: 4rem; margin: 0; letter-spacing: -2px; background: linear-gradient(to right, #fff, #888); -webkit-background-clip: text; color: transparent; }
         .hero p { font-size: 1.5rem; color: #888; margin-top: 10px; font-weight: 300; }
         
-        /* 视频背景层 (可选) */
-        .video-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.3; z-index: -1; }
-
-        /* --- 2. 视频介绍区 --- */
         .intro-section { padding: 80px 20px; text-align: center; max-width: 800px; margin: 0 auto; }
-        .video-frame {
-            width: 100%;
-            aspect-ratio: 16/9;
-            background: #222;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-            border: 1px solid #333;
-        }
+        .video-frame { width: 100%; aspect-ratio: 16/9; background: #222; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.5); border: 1px solid #333; }
 
-        /* --- 3. 可拖拽的作品集 (重点) --- */
         .portfolio-section { padding: 50px 0; }
         .section-title { padding-left: 5%; font-size: 2rem; margin-bottom: 20px; border-left: 5px solid var(--accent-color); padding-left: 15px; }
         
-        /* 横向滚动容器 */
-        .gallery-container {
-            display: flex;
-            overflow-x: auto;
-            gap: 30px;
-            padding: 20px 5%;
-            scroll-snap-type: x mandatory; /* 使得滚动有吸附感 */
-            cursor: grab;
-        }
-        .card {
-            flex: 0 0 350px; /* 卡片宽度固定 */
-            height: 500px;
-            background: #161616;
-            border-radius: 15px;
-            overflow: hidden;
-            scroll-snap-align: center;
-            transition: transform 0.3s;
-            border: 1px solid #333;
-            display: flex;
-            flex-direction: column;
-        }
+        .gallery-container { display: flex; overflow-x: auto; gap: 30px; padding: 20px 5%; scroll-snap-type: x mandatory; cursor: grab; }
+        .card { flex: 0 0 350px; height: 500px; background: #161616; border-radius: 15px; overflow: hidden; scroll-snap-align: center; transition: transform 0.3s; border: 1px solid #333; display: flex; flex-direction: column; }
         .card:hover { transform: scale(1.02); border-color: var(--accent-color); }
         .card-img { height: 60%; background-color: #333; object-fit: cover; width: 100%; }
         .card-info { padding: 20px; flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
@@ -77,18 +33,13 @@
         .card p { color: #999; font-size: 0.9rem; line-height: 1.5; }
         .tag { display: inline-block; background: #333; padding: 5px 10px; border-radius: 20px; font-size: 0.8rem; color: #ccc; margin-top: 10px; }
 
-        /* --- 4. 履历时间轴 --- */
         .resume-section { max-width: 800px; margin: 80px auto; padding: 20px; }
         .job-item { border-left: 2px solid #333; padding-left: 30px; position: relative; margin-bottom: 50px; }
         .job-item::before { content: ''; position: absolute; left: -6px; top: 0; width: 10px; height: 10px; background: var(--accent-color); border-radius: 50%; }
         .job-title { font-size: 1.8rem; color: #fff; margin: 0 0 5px 0; }
         .job-company { color: var(--accent-color); font-size: 1.1rem; margin-bottom: 15px; display: block; }
 
-        /* --- 手机端适配 --- */
-        @media (max-width: 600px) {
-            .hero h1 { font-size: 2.5rem; }
-            .card { flex: 0 0 85%; height: 450px; } /* 手机上卡片占宽一些 */
-        }
+        @media (max-width: 600px) { .hero h1 { font-size: 2.5rem; } .card { flex: 0 0 85%; height: 450px; } }
     </style>
 </head>
 <body>
@@ -112,7 +63,7 @@
         
         <div class="gallery-container">
             <div class="card">
-                < img src="https://www.imgur.la/images/2026/02/24/24457758-cosmetic-6894716_1920.jpg" class="card-img" alt="作品项目 1">
+                < img src="img1.jpg" class="card-img" alt="化妆品项目">
                 <div class="card-info">
                     <div>
                         <h3>B5 Pro 复活草系列</h3>
@@ -123,10 +74,10 @@
             </div>
 
             <div class="card">
-                < img src="https://www.imgur.la/images/2026/02/24/bellahu123-sunscreen-7256345_1920.jpg" class="card-img" alt="作品项目 2">
+                < img src="img2.jpg" class="card-img" alt="防晒项目">
                 <div class="card-info">
                     <div>
-                        <h3>防晒系列 (示例标题)</h3>
+                        <h3>防晒系列</h3>
                         <p>针对 6-12 岁儿童开发的专研面霜。主打分龄护肤概念，解决了换季痛点。</p >
                     </div>
                     <div><span class="tag">NPD</span> <span class="tag">Sun Care</span></div>
@@ -134,21 +85,21 @@
             </div>
 
             <div class="card">
-                < img src="https://www.imgur.la/images/2026/02/24/olyalole-spa-4481538_1920.jpg" class="card-img" alt="作品项目 3">
+                < img src="img3.jpg" class="card-img" alt="SPA 项目">
                 <div class="card-info">
                     <div>
-                        <h3>SPA 体验项目 (示例标题)</h3>
-                        <p>探索 AI Agent 在产品管理中的应用，搭建自动化竞品分析工作流。</p >
+                        <h3>SPA 体验项目</h3>
+                        <p>探索服务体验升级，搭建全链路客户服务SOP，提升留存率。</p >
                     </div>
-                    <div><span class="tag">Experience Design</span> <span class="tag">Efficiency</span></div>
+                    <div><span class="tag">Experience Design</span> <span class="tag">Service</span></div>
                 </div>
             </div>
 
              <div class="card">
-                < img src="https://www.imgur.la/images/2026/02/24/image9a736177673a7238.png" class="card-img" alt="作品项目 4">
+                < img src="img4.png" class="card-img" alt="其他项目">
                 <div class="card-info">
                     <div>
-                        <h3>小红书英语学习课 (示例标题)</h3>
+                        <h3>创新业务探索</h3>
                         <p>从0到1构建虚拟产品销售闭环，单月引流突破 500+。</p >
                     </div>
                     <div><span class="tag">Side Project</span></div>
